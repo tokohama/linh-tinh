@@ -1,58 +1,58 @@
 import streamlit as str
 
-# 1. Kh?i t?o co s? d? li?u mÛn an m?u kËm hÏnh ?nh minh h?a cÙng khai
+# 1. Kh?i t?o co s? d? li?u m√≥n an m?u k√®m h√¨nh ?nh minh h?a c√¥ng khai
 MEALS_DB = [
     {
-        "name": "?c g‡ ·p ch?o & BÙng c?i xanh",
+        "name": "?c g√† √°p ch?o & B√¥ng c?i xanh",
         "calories": 350, "protein": 40, "carbs": 15, "fat": 5, "sodium": 120, "purine": "Th?p", "gi": "Th?p",
         "image": "https://unsplash.com",
-        "tags": ["Gi?m c‚n", "Tang co"]
+        "tags": ["Gi?m c√¢n", "Tang co"]
     },
     {
-        "name": "Salad c· h?i bo",
+        "name": "Salad c√° h?i bo",
         "calories": 450, "protein": 30, "carbs": 10, "fat": 25, "sodium": 200, "purine": "V?a", "gi": "Th?p",
         "image": "https://unsplash.com",
-        "tags": ["Gi?m c‚n", "S?c kh?e tim m?ch"]
+        "tags": ["Gi?m c√¢n", "S?c kh?e tim m?ch"]
     },
     {
-        "name": "Ch·o y?n m?ch chu?i v‡ h?t chia",
+        "name": "Ch√°o y?n m?ch chu?i v√† h?t chia",
         "calories": 300, "protein": 10, "carbs": 55, "fat": 6, "sodium": 10, "purine": "Th?p", "gi": "V?a",
         "image": "https://unsplash.com",
-        "tags": ["Gi?m c‚n"]
+        "tags": ["Gi?m c√¢n"]
     },
     {
-        "name": "Th?t bÚ bit t?t & Khoai t‚y nghi?n",
+        "name": "Th?t b√≤ bit t?t & Khoai t√¢y nghi?n",
         "calories": 650, "protein": 45, "carbs": 40, "fat": 30, "sodium": 450, "purine": "Cao", "gi": "Cao",
-        "tags": ["Tang co", "Tang c‚n"]
+        "tags": ["Tang co", "Tang c√¢n"]
     }
 ]
 
 # Giao di?n Mini App
 str.set_page_config(page_title="Fitness & Nutrition Mini App", page_icon="??", layout="wide")
-str.title("?? Mini App Theo Dıi Luy?n T?p & Dinh Du?ng C· Nh‚n HÛa")
+str.title("?? Mini App Theo D√µi Luy?n T?p & Dinh Du?ng C√° Nh√¢n H√≥a")
 
-# Chia c?t b? c?c: Tr·i (Nh?p li?u) - Ph?i (K?t qu? & G?i ˝)
+# Chia c?t b? c?c: Tr√°i (Nh?p li?u) - Ph?i (K?t qu? & G?i √Ω)
 col1, col2 = str.columns([1, 2])
 
 with col1:
-    str.header("?? ThÙng tin ngu?i d˘ng")
-    gender = str.radio("Gi?i tÌnh", ["Nam", "N?"])
+    str.header("?? Th√¥ng tin ngu?i d√πng")
+    gender = str.radio("Gi?i t√≠nh", ["Nam", "N?"])
     age = str.number_input("Tu?i", min_value=1, max_value=100, value=25)
-    weight = str.number_input("C‚n n?ng (kg)", min_value=30.0, max_value=200.0, value=60.0)
+    weight = str.number_input("C√¢n n?ng (kg)", min_value=30.0, max_value=200.0, value=60.0)
     height = str.number_input("Chi?u cao (cm)", min_value=100.0, max_value=250.0, value=165.0)
     
     activity = str.selectbox("T?n su?t v?n d?ng", [
-        "Õt v?n d?ng (Van phÚng)",
-        "V?n d?ng nh? (1-3 ng‡y/tu?n)",
-        "V?n d?ng v?a (3-5 ng‡y/tu?n)",
-        "V?n d?ng n?ng (6-7 ng‡y/tu?n)"
+        "√çt v?n d?ng (Van ph√≤ng)",
+        "V?n d?ng nh? (1-3 ng√†y/tu?n)",
+        "V?n d?ng v?a (3-5 ng√†y/tu?n)",
+        "V?n d?ng n?ng (6-7 ng√†y/tu?n)"
     ])
     
-    goal = str.selectbox("M?c tiÍu hÏnh th?", ["Gi?m c‚n", "Gi? c‚n", "Tang co / Tang c‚n"])
-    medical_condition = str.multiselect("ThÙng tin b?nh l˝ (n?u cÛ)", ["Ti?u du?ng", "Gout", "Cao huy?t ·p"])
+    goal = str.selectbox("M?c ti√™u h√¨nh th?", ["Gi?m c√¢n", "Gi? c√¢n", "Tang co / Tang c√¢n"])
+    medical_condition = str.multiselect("Th√¥ng tin b?nh l√Ω (n?u c√≥)", ["Ti?u du?ng", "Gout", "Cao huy?t √°p"])
 
-# X? l˝ tÌnh to·n ch? s?
-activity_factors = {"Õt v?n d?ng (Van phÚng)": 1.2, "V?n d?ng nh? (1-3 ng‡y/tu?n)": 1.375, "V?n d?ng v?a (3-5 ng‡y/tu?n)": 1.55, "V?n d?ng n?ng (6-7 ng‡y/tu?n)": 1.725}
+# X? l√Ω t√≠nh to√°n ch? s?
+activity_factors = {"√çt v?n d?ng (Van ph√≤ng)": 1.2, "V?n d?ng nh? (1-3 ng√†y/tu?n)": 1.375, "V?n d?ng v?a (3-5 ng√†y/tu?n)": 1.55, "V?n d?ng n?ng (6-7 ng√†y/tu?n)": 1.725}
 r_factor = activity_factors[activity]
 
 if gender == "Nam":
@@ -62,7 +62,7 @@ else:
 
 tdee = bmr * r_factor
 
-if "Gi?m c‚n" in goal:
+if "Gi?m c√¢n" in goal:
     target_cal = tdee - 500
 elif "Tang co" in goal:
     target_cal = tdee + 300
@@ -70,35 +70,35 @@ else:
     target_cal = tdee
 
 with col2:
-    str.header("?? Ph‚n tÌch & G?i ˝ th?c don")
+    str.header("?? Ph√¢n t√≠ch & G?i √Ω th?c don")
     
-    # Hi?n th? thÙng s? t?ng quan
+    # Hi?n th? th√¥ng s? t?ng quan
     c1, c2, c3 = str.columns(3)
     c1.metric("Ch? s? BMR (kcal)", f"{bmr:.0f}")
     c2.metric("Ch? s? TDEE (kcal)", f"{tdee:.0f}")
-    c3.metric("M?c tiÍu Calorie/Ng‡y", f"{target_cal:.0f} kcal")
+    c3.metric("M?c ti√™u Calorie/Ng√†y", f"{target_cal:.0f} kcal")
     
-    str.subheader("??? MÛn an g?i ˝ ph˘ h?p v?i b?n")
+    str.subheader("??? M√≥n an g?i √Ω ph√π h?p v?i b?n")
     
-    # Thu?t to·n l?c mÛn an thÙng minh theo m?c tiÍu v‡ b?nh l˝
+    # Thu?t to√°n l?c m√≥n an th√¥ng minh theo m?c ti√™u v√† b?nh l√Ω
     filtered_meals = []
     for meal in MEALS_DB:
-        # L?c theo b?nh l˝ tru?c
+        # L?c theo b?nh l√Ω tru?c
         if "Ti?u du?ng" in medical_condition and meal["gi"] == "Cao":
             continue
         if "Gout" in medical_condition and meal["purine"] == "Cao":
             continue
-        if "Cao huy?t ·p" in medical_condition and meal["sodium"] > 400:
+        if "Cao huy?t √°p" in medical_condition and meal["sodium"] > 400:
             continue
             
-        # L?c theo m?c tiÍu hÏnh th? co b?n
-        if "Gi?m c‚n" in goal and meal["calories"] > 500:
+        # L?c theo m?c ti√™u h√¨nh th? co b?n
+        if "Gi?m c√¢n" in goal and meal["calories"] > 500:
             continue
             
         filtered_meals.append(meal)
         
     if not filtered_meals:
-        str.warning("KhÙng tÏm th?y mÛn an n‡o ph˘ h?p tuy?t d?i v?i c?u hÏnh b?nh l˝ ph?c t?p c?a b?n. Vui lÚng tham kh?o ˝ ki?n b·c si.")
+        str.warning("Kh√¥ng t√¨m th?y m√≥n an n√†o ph√π h?p tuy?t d?i v?i c?u h√¨nh b?nh l√Ω ph?c t?p c?a b?n. Vui l√≤ng tham kh?o √Ω ki?n b√°c si.")
     else:
         for m in filtered_meals:
             with str.container():
@@ -111,8 +111,8 @@ with col2:
                         str.image("https://unsplash.com", use_column_width=True)
                 with info_col:
                     str.markdown(f"**?? Nang lu?ng:** `{m['calories']} kcal`")
-                    str.markdown(f"*   **–?m (Protein):** {m['protein']}g")
+                    str.markdown(f"*   **√ê?m (Protein):** {m['protein']}g")
                     str.markdown(f"*   **Tinh b?t (Carbs):** {m['carbs']}g")
-                    str.markdown(f"*   **Ch?t bÈo (Fat):** {m['fat']}g")
+                    str.markdown(f"*   **Ch?t b√©o (Fat):** {m['fat']}g")
                     str.markdown(f"*   **Mu?i (Sodium):** {m['sodium']}mg")
-                str.divider()
+                str.divider() 
